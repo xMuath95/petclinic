@@ -26,10 +26,10 @@ pipeline {
             steps {
               dependencyCheck(
                   odcInstallation: 'DC-Tool',
-                  additionalArguments: '--scan ./ --format ALL --out ./ --prettyPrint'
+                  additionalArguments: '--scan ./ --format XML --out ./target/dependency-check --prettyPrint'
             )
             dependencyCheckPublisher(
-                pattern: 'dependency-check-report.xml'
+                pattern: 'target/dependency-check/dependency-check-report.xml'
             )
             }
             }
