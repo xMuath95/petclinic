@@ -27,7 +27,11 @@ pipeline {
               dependencyCheck additionalArguments: '',
                   odcInstallation: 'DC-Tool',
                   scanpath: '.',
+                  datadir: '',
+                suppressionFile: '',
                   outdir: 'dependency-check-report'
+                isQuickMode: false,
+                    enableExperimental: false
             }
             }
             stage('Deploy') {
