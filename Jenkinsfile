@@ -11,7 +11,7 @@
             steps {
                sh ./mvnw test
             }
-            }
+            } 
             stage('Code Quality Check') {
             steps {
                
