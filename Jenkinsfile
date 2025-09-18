@@ -24,7 +24,10 @@ pipeline {
             }
             stage('Security') {
             steps {
-              echo 'sec steps'
+              dependencyCheck additionalArguments: '',
+                  odcInstallation: 'DC-Tool',
+                  scanpath: '.',
+                  outdir: 'dependency-check-report'
             }
             }
             stage('Deploy') {
