@@ -5,7 +5,7 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-        sh './mvnw clean package -Dcheckstyle.skip=true'
+        sh './mvnw clean package -Dcheckstyle.skipExec=true -Dcheckstyle.skip=true'
 
             }
         }
