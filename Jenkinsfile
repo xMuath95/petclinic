@@ -25,14 +25,12 @@ pipeline {
             stage('Security') {
             steps {
               dependencyCheck(
-             scanPath: './',
-             format: 'ALL',
-             outputDirectory: './',
-             isPrettyPrint: true,
-             additionalArguments: '',
-            odcInstallation: 'DC-Tool'
+                  odcInstallation: 'DC-Tool',
+                  additionalArguments: '--scan ./ --format ALL --out ./ --prettyPrint'
             )
-            dependencyCheckPublisher (pattern: 'dependency-check-report.xml')
+            dependencyCheckPublisher(
+                pattern: 'dependency-check-report.xml'
+            )
             }
             }
             stage('Deploy') {
