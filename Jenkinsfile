@@ -31,8 +31,8 @@ pipeline {
              isPrettyPrint: true,
              additionalArguments: '',
             odcInstallation: 'DC-Tool'
-                  )
-                dependencyCheckPublisher (pattern: 'dependency-check-report.xml')
+            )
+            dependencyCheckPublisher (pattern: 'dependency-check-report.xml')
             }
             }
             stage('Deploy') {
