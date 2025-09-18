@@ -4,12 +4,12 @@
     stages {
         stage('Build') {
             steps {
-        sh ./mvnw clean package
+        sh './mvnw clean package'
             }
         }
             stage('Test') {
             steps {
-               sh ./mvnw test
+               sh './mvnw test'
             }
             } 
             stage('Code Quality Check') {
