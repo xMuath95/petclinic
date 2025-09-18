@@ -16,7 +16,10 @@ pipeline {
             }
             stage('Code Quality Check') {
             steps {
-               echo 'code q steps'
+               withCredentials([string(credentialsId: 'SONAR_TOKEN', variable: 'SONAR_TOKEN')])
+                {
+                    sh './sonar-scanner-7.2.0.5079-macosx-aarch64/bin/sonar-scanner'
+                }
             }
             }
             stage('Security') {
