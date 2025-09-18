@@ -24,14 +24,12 @@ pipeline {
             }
             stage('Security') {
             steps {
-              dependencyCheck additionalArguments: '',
-                  odcInstallation: 'DC-Tool',
-                  scanpath: '.',
-                  datadir: '',
-                suppressionFile: '',
-                  outdir: 'dependency-check-report'
-                isQuickMode: false,
-                    enableExperimental: false
+              dependencyCheck additionalArguments: '''
+              -o "./"
+              -s "./"
+              -f "ALL" 
+                 --prettyPrint''', odcInstallation: 'DC-Tool',
+                dependencyCheckPublisher pattern: 'dependency-check-report.xml'
             }
             }
             stage('Deploy') {
