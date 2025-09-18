@@ -35,9 +35,12 @@ pipeline {
             }
             stage('Deploy') {
             steps {
-              echo 'deplyeds steps'
+                script {
+              sh '/usr/local/bin/docker rm -f petclinic || true'
+                sh '/usr/local/bin/docker build -t petclinic:latest .'
+                sh '/usr/local/bin/docker run -d -p 8081:8080 --name petclinic petclinic:latest'
             }
-            
-            }
+        }
+    }
 }
 }
